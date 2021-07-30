@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: CheckOut
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.1
         with:
           persist-credentials: false
       - name: Use Node.js ${{ matrix.node-version }}
@@ -25,9 +25,9 @@ jobs:
           npm ci
           npm run build
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v2.5.0  // 引用别人的部署插件
+        uses: JamesIves/github-pages-deploy-action@4.1.4  // 引用别人的部署插件
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}   // 这里需要设置成你的 token
-          BRANCH: gh-pages
-          FOLDER: docs/.vuepress/dist
+          branch: gh-pages
+          folder: docs/.vuepress/dist
 
