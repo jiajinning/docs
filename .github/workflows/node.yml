@@ -2,9 +2,11 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - master
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
 
 jobs:
   build-and-deploy:
@@ -19,8 +21,10 @@ jobs:
         with:
           node-version: '16.x'
           cache: 'npm'
-      - run: npm ci
-      - run: npm run build --if-present
+      - name: install and build
+        run: |
+          npm ci
+          npm run build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.5.9  // 引用别人的部署插件
         with:
