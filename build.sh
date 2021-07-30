@@ -12,6 +12,6 @@ cd docs/.vuepress/dist
 # git
 git init
 git add .
-git commit -m 'deploy'
-git remote add origin https://github.com/jiajinning/jiajinning.github.io.git
-git push -f origin master
+git commit -m 'deploy docs by jiajinning'
+git remote add origin https://github.com/jiajinning/docs.git
+git push -f origin master:gh-pages
